@@ -1,1 +1,1 @@
-Processes and Signals
+ Processes and signals in bash scripting

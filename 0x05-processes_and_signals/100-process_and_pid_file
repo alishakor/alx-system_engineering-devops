@@ -13,7 +13,7 @@ function remove {
 	exit
 }
 
-echo "$$" > var/run/myscript.pid
+echo "$$" > /var/run/myscript.pid
 
 while true
 do

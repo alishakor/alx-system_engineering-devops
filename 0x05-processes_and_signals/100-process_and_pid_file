@@ -15,7 +15,7 @@ function remove {
 
 echo "$$" > /var/run/myscript.pid
 
-while True
+while true
 do
 	echo "To infinity and beyond"
 	sleep 2

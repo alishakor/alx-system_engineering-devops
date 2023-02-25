@@ -15,12 +15,12 @@ function remove {
 
 echo "$$" > /var/run/myscript.pid
 
-while true
+while True
 do
 	echo "To infinity and beyond"
 	sleep 2
 
-	trap 'echo "I hate kill command" && remove_file' SIGTERM
+	trap 'echo "I hate kill command" && remove' SIGTERM
 	trap 'echo "Y U no love me?!"' SIGINT
 	trap 'remove' SIGQUIT
 done

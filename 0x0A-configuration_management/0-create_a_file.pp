@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Using Puppet, create a file in /tmp.
 #Requirements:
 

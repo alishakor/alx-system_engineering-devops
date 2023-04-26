@@ -3,7 +3,7 @@
 
 # Create a new server block configuration file for the domain/subdomain where the redirect should happen
 apt-get update
-apt-get -y nginx install
+apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www

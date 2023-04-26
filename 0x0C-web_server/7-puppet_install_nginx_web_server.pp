@@ -46,5 +46,5 @@ service { 'nginx':
   subscribe => File['/etc/nginx/sites-available/default'],
 }
 
-#Apply the puppet manifest
+# Apply the puppet manifest
 sudo puppet apply 7-puppet_install_nginx_web_server.pp

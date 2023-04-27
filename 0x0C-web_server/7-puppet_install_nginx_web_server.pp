@@ -1,50 +1,30 @@
 #!/usr/bin/env bash
-# Install Nginx web server with puppet
+# A Script to Install Nginx web server with puppet
 
 # Install Nginx package
 package { 'nginx':
   ensure => installed,
 }
 
-# Start and enable Nginx service
-service { 'nginx':
-  ensure => running,
-  enable => true,
+# Execute the Installation instructions
+exec {'install':
+  command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
+  provider => shell,
+
 }
 
-# Create Nginx configuration file
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  content => "
-    server {
-      listen 80;
-      server_name _;
-
-      location / {
-        return 200 'Hello World!';
-      }
-
-      location /redirect_me {
-        return 301 https://allysynergy.tech /;
-      }
-    }
-  ",
-  require => Package['nginx'],
+exec {'Hello':
+  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+  provider => shell,
 }
 
-# Create symbolic link to enable Nginx configuration
-file { '/etc/nginx/sites-enabled/default':
-  ensure  => 'link',
-  target  => '/etc/nginx/sites-available/default',
-  require => File['/etc/nginx/sites-available/default'],
+exec {'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation /
+         \/redirect_me {\\n\\t\\treturn 301 https:\/\/redirect_me.allysnergy.com\/;\\n\\t}/" /
+         /etc/nginx/sites-available/default':
+  provider => shell,
 }
 
-# Restart Nginx service when configuration changes
-service { 'nginx':
-  ensure    => running,
-  enable    => true,
-  subscribe => File['/etc/nginx/sites-available/default'],
+exec {'run':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
-
-# Apply the puppet manifest
-sudo puppet apply 7-puppet_install_nginx_web_server.pp

@@ -8,7 +8,8 @@
 # File group is www-data
 # File contains I love Puppet
 
-file { 'tmp/school':
+file { '/tmp/school':
+
   ensure  => 'present',
   content => 'I love Puppet',
   mode    => '0744',

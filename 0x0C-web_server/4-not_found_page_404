@@ -3,7 +3,7 @@
 # the string Ceci n'est pas une page : This is not a page
 
 sudo apt-get update
-sudo apt-get install -y nginx 
+sudo apt-get install -y nginx
 echo "Hello World!" > index.html
 sudo mv index.html /var/www/html
 
@@ -24,5 +24,4 @@ echo "server {
    }
 }" > default
 sudo mv -f default /etc/nginx/sites-available/default
-# Restart the nginx server
 sudo service nginx restart

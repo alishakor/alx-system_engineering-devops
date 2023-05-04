@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# A bash script that installs, configures and starts the server
 apt-get -y update
 apt-get -y install nginx
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html

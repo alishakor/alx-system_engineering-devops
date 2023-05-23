@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     if response_1.status_code == 200:
         user_id = response_1.json()
-        user_name = f"{user_id.get('username')}"
+        user_name = user_id.get("name")
         user_task = response_2.json()
 
         filename = f"{employee_id}.csv"

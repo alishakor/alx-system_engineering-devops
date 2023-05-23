@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
         filename = f"{employee_id}.csv"
         # Open the csv file in write mode
-        with open(filename, "w") as csv_file:
+        with open(filename, "w", newline="") as csv_file:
             # Create a CSV writer object
             writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
             for task in user_task:

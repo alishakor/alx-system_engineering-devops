@@ -24,7 +24,6 @@ if __name__ == "__main__":
 
     employee_id = sys.argv[1]
 
-    # response = requests.get(url)
     url_id = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     response_1 = requests.get(url_id)
 
@@ -43,7 +42,7 @@ if __name__ == "__main__":
         for j in user_task:
             if j.get("completed"):
                 titles.append(j.get("title"))
-        print("Employee {} is done with tasks\
-        ({}/{}):".format(user_name, len(task), len(user_task)))
+        first_line = "Employee {} is done with tasks({}/{}):"
+        print(first_line.format(user_name, len(task), len(user_task)))
         for title in titles:
-            print("\t{}".format(title))
+            print("\t {}".format(title))

@@ -37,17 +37,18 @@ if __name__ == "__main__":
         filename = f"{employee_id}.json"
         # Open the json file in write mode
         with open(filename, "w") as json_file:
-            task = []
+            task_list = []
             for task in user_task:
                 user_id = task["userId"]
                 completed = task["completed"]
                 title = task["title"]
                 task_dic = {
                     "task": title,
-                    "completed": completed
+                    "completed": completed,
                     "username": user_name
                 }
+                task_list.append(task_dic)
             # Write the data to json file
-            json.dump({user:id: task_list}, json_file}
+            json.dump({user_id: task_list}, json_file)
     else:
         print(f"Error: {response_1.status_code}")

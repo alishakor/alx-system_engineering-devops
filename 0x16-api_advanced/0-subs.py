@@ -1,5 +1,7 @@
 #!usr/bin/python3
-"""A moodule that queries tne REDDIT API"""
+"""
+A moodule that queries tne REDDIT API
+"""
 
 import requests
 
@@ -22,7 +24,7 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers=headers)
     data = response.json()
     if response.status_code == 200:
-        subscribers = data["data"]["subscribers"]
+        subscriber = data["data"]["subscribers"]
     else:
-        subscribers = 0
-    return subscribers
+        subscriber = 0
+    return subscriber

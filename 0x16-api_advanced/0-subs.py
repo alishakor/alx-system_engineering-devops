@@ -4,7 +4,7 @@
 import requests
 
 
-def number_of_subscribers(subreddit)
+def number_of_subscribers(subreddit):
     """
     a function that queries the REDDIT API
 
